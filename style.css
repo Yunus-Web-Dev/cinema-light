@@ -274,25 +274,40 @@ header .search-auth-container #auth:hover {
 
 /* trailers start */
 .trailers-container {
-    padding: 30px;
+    margin-top: calc(2.25vw + 10.8px);
+    /*54px 18px*/
+    padding: calc(1.25vw + 6px);
+    /*30px 10px*/
     display: flex;
     flex-direction: column;
-
+    gap: 20px;
 }
 
 .trailers-container-introduction {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-.trailers-container-introduction h2 {
+.trailers-container-introduction h3 {
     font-family: 'Qanelas', sans-serif;
     font-weight: 900;
     font-size: calc(2.06vw + 25.4px);
     /*65px 32px*/
     line-height: 100%;
     color: var(--white);
+}
+
+@media (max-width:768px) {
+    .trailers-container-introduction {
+        justify-content: center;
+    }
+
+    .trailers-container-introduction h3 {
+        text-align: center;
+    }
 }
 
 #trailers-page {
@@ -310,9 +325,91 @@ header .search-auth-container #auth:hover {
     flex-direction: column;
 
 }
+
 iframe {
-    margin-top: 79px;
+    height: calc(35.5vw + 82.2px);
     border-radius: 10px;
 }
+
+.trailers-container-content-likes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trailers-container-name {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.trailers-container-name h3 {
+    font-family: 'Qanelas', sans-serif;
+    font-weight: 900;
+    font-size: calc(1.25vw + 21px);
+    /*45px*/
+    line-height: 100%;
+    color: var(--white);
+}
+
+.trailers-container-name img {
+    cursor: pointer;
+}
+
+.trailers-container-likes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.trailers-container-likes div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Qanelas', sans-serif;
+    font-size: calc(0.375vw + 7.8px);
+    /*15px 9px*/
+    line-height: 100%;
+    color: var(--white);
+}
+
+
+#like,
+#dislike {
+    width: calc(1.25vw + 24.4px);
+    /*58px 30px*/
+    cursor: pointer;
+}
+
+.overflow-trailers-container {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%; /* или нужная ширина, но больше чем один iframe */
+    padding-bottom: 10px; /* чтобы скроллбар не прилипал */
+    scrollbar-width: thin;
+    scrollbar-color: #3657CB transparent;
+}
+
+.overflow-trailers-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.overflow-trailers-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.overflow-trailers-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.overflow-trailers-block {
+    flex: 0 0 500px; /* фиксированная ширина блока с видео */
+}
+
 
 /* trailers end */
