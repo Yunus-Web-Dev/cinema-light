@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header role="heading">
+        <img src="./src/assets/images/burgermenu.svg" alt="burgermenu" id="burgermenu">
+        <img src="./src/assets/images/logo.svg" alt="logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#">Афиша</a></li>
+                <li><a href="#">Медиа</a></li>
+                <li><a href="#">Фильмы</a></li>
+                <li><a href="#">Актёры</a></li>
+                <li><a href="#">Новости</a></li>
+                <li><a href="#">Подборки</a></li>
+                <li><a href="#">Категории</a></li>
+            </ul>
+        </nav>
+        <div class="search-auth-container">
+            <img src="./src/assets/images/searcher.svg" alt="searcher" id="searcher">
+            <button id="auth">Войти</button>
+        </div>
+    </header>
+    <main role="main">
+        <section class="hero">
+            <div class="hero-introduction-container">
+                <h1>Сейчас в кино</h1>
+                <hr class="line">
+                <ul class="selection-of-genre">
+                    <li><a href="#">Все</a></li>
+                    <li><a href="#">Боевики</a></li>
+                    <li><a href="#">Приключения</a></li>
+                    <li><a href="#">Комедии</a></li>
+                    <li><a href="#">Фантастика</a></li>
+                    <li><a href="#">Триллеры</a></li>
+                    <li><a href="#">Драма</a></li>
+                </ul>
+            </div>
+            <div class="now-in-cinemas-container" id="cinemas-container">
+                <!-- Карточки будут рендериться сюда -->
+            </div>
+            <button id="show-more">Все новинки</button>
+        </section>
+    </main>
+    <script defer src="./script.js"></script>
+</body>
+</html>
