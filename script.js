@@ -1,4 +1,3 @@
-
   const loader = document.getElementById('loader');
   document.body.classList.add('loading');
 
