@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div id="loader">
+  <div class="projector-flash"></div>
+  <div class="loader-text">
+    <h1>🎬 Lights. Camera. Action!</h1>
+    <p>Загрузка киноарены...</p>
+  </div>
+</div>
     <header role="heading">
         <img src="./src/assets/images/burgermenu.svg" alt="burgermenu" id="burgermenu">
         <img src="./src/assets/images/logo.svg" alt="logo" class="logo">
@@ -55,7 +63,7 @@
                 <iframe width="100%" height="765" src="https://www.youtube.com/embed/uyPLu4E45So"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
+                    allowfullscreen id="fullscreen">
                 </iframe>
             </div>
             <div class="trailers-container-content-likes">
@@ -68,28 +76,55 @@
                         <img src="./src/assets/images/like.svg" alt="like" id="like">
                         3 245
                     </div>
-                                        <div>
+                    <div>
                         <img src="./src/assets/images/like.svg" alt="dislike" id="dislike">
                         3 245
                     </div>
                 </div>
             </div>
-            <div class="overflow-trailers-container">
-                <div class="overflow-trailers-block">
-                    <iframe width="100%" height="514" src="https://www.youtube.com/embed/5w_B6xHGFms" title="Мулан — Русский трейлер #2 (2020)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="overflow-trailers-block">
-                <iframe width="100%" height="514" src="https://www.youtube.com/embed/uyPLu4E45So" title="ФОРСАЖ 9 | Трейлер 2 | в кино с 19 мая" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                            <div class="overflow-trailers-block">
-                            <iframe width="100%" height="514" src="https://www.youtube.com/embed/nSaGrHhkdVs" title="Чёрная Вдова | Официальный трейлер | 2021" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="overflow-trailers-container" id="trailers-container-rendering">
+                <!-- Карточки будут рендериться сюда -->
             </div>
-                        <div class="overflow-trailers-block">
-            <iframe width="100%" height="514" src="https://www.youtube.com/embed/5Rjm8TVa1T0" title="Тихое место 2 — Русский трейлер (2021)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
+        </section>
+        <section class="film-cards-wrapper">
+            <div class="hero-introduction-container">
+                <h1>Сейчас в кино</h1>
+                <hr class="line">
+                <ul class="selection-of-genre">
+                    <li><a href="#">Всё время</a></li>
+                    <li><a href="#">2020</a></li>
+                    <li><a href="#">2019</a></li>
+                    <li><a href="#">2018</a></li>
+                    <li><a href="#">2017</a></li>
+                    <li><a href="#">2016</a></li>
+                    <li><a href="#">2015</a></li>
+                </ul>
+            </div>
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        
+                    </div>
+                    <div class="swiper-slide">
+
+                    </div>
+                    <div class="swiper-slide">
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
+                <!-- If we need navigation buttons -->
+                <!-- <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div> -->
+                <!-- If we need scrollbar -->
+                <!-- <div class="swiper-scrollbar"></div> -->
             </div>
         </section>
     </main>
+    <script defer src="./node_modules/swiper/swiper-bundle.min.js"></script>
     <script defer src="./script.js"></script>
 </body>
 </html>
