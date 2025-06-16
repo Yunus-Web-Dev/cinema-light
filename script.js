@@ -1,122 +1,80 @@
-  const loader = document.getElementById('loader');
-  document.body.classList.add('loading');
+import movies from "./public/data/movies.js";
+import trailers from "./public/data/trailers.js";
+import filmSlides from "./public/data/filmSlides.js";
+import filmSlides2 from "./public/data/filmSlides2.js";
 
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      loader.style.opacity = '0';
-      document.body.classList.remove('loading');
-      setTimeout(() => {
-        loader.remove();
-      }, 1000); // Плавно исчезает
-    }, 2000); // 4 секунд
-  });
+//Loader start
+// const loader = document.getElementById('loader');
+// document.body.classList.add('loading');
+
+// window.addEventListener('load', () => {
+//     setTimeout(() => {
+//         loader.style.opacity = '0';
+//         document.body.classList.remove('loading');
+//         setTimeout(() => {
+//             loader.remove();
+//         }, 1000); // Плавно исчезает
+//     }, 2000); // 4 секунд
+// });
+//Loader end
 
 
-function scrollingOfHeader() {
-    window.addEventListener('scroll', function () {
-        const header = this.document.getElementsByTagName('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        };
-    });
-}
+// ScrollingOfHeader start
+// function scrollingOfHeader() {
+//     window.addEventListener('scroll', function () {
+//         const header = this.document.getElementsByTagName('header');
+//         if (window.scrollY > 50) {
+//             header.classList.add('scrolled');
+//         } else {
+//             header.classList.remove('scrolled');
+//         };
+//     });
+// }
+// scrollingOfHeader();
+// ScrollingOfHeader end
 
-const movies = [
-    {
-        rating: '6.70',
-        imgSrc: "./src/assets/images/image2.svg",
-        title: "Звёздные войны: Скайуокер. Восход",
-        genre: "Триллер"
-    },
-    {
-        rating: '6.70',
-        imgSrc: "./src/assets/images/image4.svg",
-        title: "Звёздные войны: Скайуокер. Восход",
-        genre: "Триллер"
-    },
-    {
-        rating: '6.70',
-        imgSrc: "./src/assets/images/image3.svg",
-        title: "Звёздные войны: Скайуокер. Восход",
-        genre: "Триллер"
-    },
-    {
-        rating: '6.70',
-        imgSrc: "./src/assets/images/image1.svg",
-        title: "Звёздные войны: Скайуокер. Восход",
-        genre: "Триллер"
-    },
-    {
-        rating: '6.70',
-        imgSrc: "./src/assets/images/image5.svg",
-        title: "Звёздные войны: Скайуокер. Восход",
-        genre: "Триллер"
-    },
-    {
-        rating: '6.70',
-        imgSrc: "./src/assets/images/image6.svg",
-        title: "Звёздные войны: Скайуокер. Восход",
-        genre: "Триллер"
-    },
-    {
-        rating: '6.70',
-        imgSrc: "./src/assets/images/image7.svg",
-        title: "Звёздные войны: Скайуокер. Восход",
-        genre: "Триллер"
-    }, {
-        rating: '6.70',
-        imgSrc: "./src/assets/images/image8.svg",
-        title: "Звёздные войны: Скайуокер. Восход",
-        genre: "Триллер"
-    },
-];
+
+// старт Отрисовка фильмов первый этап все новинки
+let currentIndex = 0;
+const step = 8;
 
 function renderNewFilms() {
     const container = document.getElementById('cinemas-container');
+    const end = Math.min(currentIndex + step, movies.length);
 
-    movies.forEach(movie => {
+    for (let i = currentIndex; i < end; i++) {
+        const movie = movies[i];
+
         const movieBlock = document.createElement('div');
         movieBlock.className = 'now-in-cinemas-block';
 
         movieBlock.innerHTML = `
-                            <div class="raiting">${movie.rating}</div>
-                    <img src="${movie.imgSrc}" alt="poster">
-                    <div class="now-in-cinemas-info">
-                        <h3>${movie.title}</h3>
-                        <span>${movie.genre}</span>
-                    </div>
+            <div class="raiting">${movie.rating}</div>
+            <img src="${movie.imgSrc}" alt="poster">
+            <div class="now-in-cinemas-info">
+                <h3>${movie.title}</h3>
+                <span>${movie.genre}</span>
+            </div>
         `;
+
         container.appendChild(movieBlock);
-    });
+    }
+
+    currentIndex = end;
+
+    if (currentIndex >= movies.length) {
+        document.getElementById('show-more').style.display = 'none';
+    }
 }
 
+document.getElementById('show-more').addEventListener('click', renderNewFilms);
 renderNewFilms();
+//конец Отрисовка фильмов первый этап все новинки
 
 
 
-const trailers = [
-    {
-        title: 'Мулан',
-        src: 'https://www.youtube.com/embed/5w_B6xHGFms'
-    },
-    {
-        title: 'Форсаж 9',
-        src: 'https://www.youtube.com/embed/uyPLu4E45So'
-    },
-    {
-        title: 'Чёрная вдова',
-        src: 'https://www.youtube.com/embed/nSaGrHhkdVs'
-    },
-    {
-        title: 'Тихое место 2',
-        src: 'https://www.youtube.com/embed/5Rjm8TVa1T0'
-    },
-];
-
+// Старт отрисовка оверфлов трэйлер
 const container = document.getElementById('trailers-container-rendering');
-
 container.innerHTML = trailers.map(trailer => `
                 <div class="overflow-trailers-block">
                     <iframe width="100%" src="${trailer.src}"
@@ -126,16 +84,18 @@ container.innerHTML = trailers.map(trailer => `
                     <span>${trailer.title}</span>
                 </div>
     `).join(' ');
+//Конец отрисовка оверфлов трэйлер
 
 
 
 
-
+// swiper rendering 
 const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'horizontal',
     loop: true,
-    autoplay:true,
+    autoplay: true,
+
     // If we need pagination
     pagination: {
         el: '.swiper-pagination',
@@ -154,38 +114,8 @@ const swiper = new Swiper('.swiper', {
     },
 });
 
-
-
-// swiper rendering 
-
-const filmSlides = [
-    //Первый слайд
-    [
-        { title: 'Джокер', genres: 'Триллер, драма, криминал', img: './src/assets/images/film4.svg' },
-        { title: 'История игрушек 4', genres: 'Мультфильм, фентези, комедия, приключения', img: './src/assets/images/film1.svg' },
-        { title: 'Однажды в... Голливуде', genres: 'Драма, комедия', img: './src/assets/images/film2.svg' },
-        { title: 'Солнцестояние', genres: 'Ужасы, триллер, драма', img: './src/assets/images/film3.svg' },
-    ],
-    // Второй слайд
-    [
-        { title: 'Морские паразиты', genres: 'Ужасы, фантастика', img: './src/assets/images/film5.svg' },
-        { title: 'Запретная зона', genres: 'Триллер', img: './src/assets/images/film6.svg' },
-        { title: 'Приключения котёнка Пелле', genres: 'Мультфильм', img: './src/assets/images/film7.svg' },
-        { title: 'Агент Лев', genres: 'Комедия', img: './src/assets/images/film8.svg' },
-    ],
-    // Третий слайд
-    [
-        { title: 'Белка и Стрелка: Карибская тайна', genres: 'Мультфильм, комедия, приключения, семейный', img: './src/assets/images/film9.svg' },
-        { title: 'Запретная кухня', genres: 'Семейный', img: './src/assets/images/film10.svg' },
-        { title: '8 с половиной', genres: 'Драма, ...', img: './src/assets/images/film11.svg' },
-        { title: 'Выживший', genres: 'Триллер, детектив, драма, ...', img: './src/assets/images/film12.svg' },
-    ],
-
-];
-
 function renderingOfSwiperElems() {
     const wrapper = document.querySelector('.swiper-wrapper');
-
     wrapper.innerHTML = filmSlides.map(slide =>
         `<div class="swiper-slide">
             ${slide.map(film => `
@@ -202,3 +132,66 @@ function renderingOfSwiperElems() {
 };
 
 renderingOfSwiperElems();
+
+function renderingOfSwiperElems2() {
+    const wrapper = document.querySelector('#swiper-wrapper2');
+    wrapper.innerHTML = filmSlides2.map(slide =>
+        `<div class="swiper-slide" id="swiper-slide2">
+            ${slide.map(film => `
+                <div class="popular-films">
+                    <img src="${film.img}" alt="${film.title}">
+                    <div class="film-desc">
+                        <h3>${film.title}</h3>
+                        <span>${film.genres}</span>
+                    </div>
+                </div>
+            `).join('')}
+        </div>`
+    ).join('');
+};
+
+renderingOfSwiperElems2();
+
+
+
+
+let slideIndex = 1;
+
+function showSlides(n) {
+    const slides = document.getElementsByClassName("mySlides");
+    const dots = document.getElementsByClassName("demo");
+    const captionText = document.getElementById("caption");
+
+    if (!slides.length) return;
+
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    captionText.innerHTML = dots[slideIndex - 1].alt;
+}
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+window.plusSlides = plusSlides;
+window.currentSlide = currentSlide;
+window.showSlides = showSlides;
+
+document.addEventListener('DOMContentLoaded', () => {
+    showSlides(slideIndex);
+});

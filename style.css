@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 :root {
@@ -11,7 +12,9 @@
     --gray: gray;
     --lightgreen: #89CB36;
     --ligtred: #CB3F36;
-    --lightyellow:#F2F60F;
+    --lightyellow: #F2F60F;
+    --veryDarkBlue: #1E2538;
+    --lightbluemiddle:#3B486B;
 }
 
 body {
@@ -22,78 +25,85 @@ body {
 }
 
 body.loading {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 #loader {
-  position: fixed;
-  inset: 0;
-  background-color: #000;
-  color: #fff;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Arial', sans-serif;
-  text-align: center;
-  transition: opacity 1s ease;
+    position: fixed;
+    inset: 0;
+    background-color: #000;
+    color: #fff;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    transition: opacity 1s ease;
 }
 
 .loader-text h1 {
-  font-size: 2.5rem;
-  animation: fadeIn 2s ease-in-out infinite alternate;
+    font-size: 2.5rem;
+    animation: fadeIn 2s ease-in-out infinite alternate;
 }
 
 .loader-text p {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  opacity: 0.7;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    opacity: 0.7;
 }
 
 .projector-flash {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, #ffffff55 0%, transparent 70%);
-  border-radius: 50%;
-  animation: flash 1.5s ease-in-out infinite;
-  margin-bottom: 30px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ffffff55 0%, transparent 70%);
+    border-radius: 50%;
+    animation: flash 1.5s ease-in-out infinite;
+    margin-bottom: 30px;
 }
 
 @keyframes flash {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.5);
-    opacity: 0.8;
-  }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0.4;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(5px);
-  }
+    from {
+        opacity: 0.4;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(5px);
+    }
 }
 
 
 /* header start */
 header {
-    /* position: fixed; */
+    background: var(--veryDarkBlue);
+    position: fixed;
     width: 100%;
-    padding: calc(1.87vw + 4px); /*40px 10px*/
-    padding-top: calc(0.93vw + 7px); /*25px 10px*/
+    padding: calc(1.87vw + 4px);/*40px 10px*/
+    padding-top: calc(0.93vw + 7px);/*25px 10px*/
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: calc(8.1vw - 6px); /* 150px 20px*/
-    z-index: 1;
+    gap: calc(8.1vw - 6px);/* 150px 20px*/
+    z-index: 1000;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 20px;
 
 }
 
@@ -106,7 +116,8 @@ header #burgermenu {
 }
 
 header .logo {
-    width: calc(2.06vw + 87.4px); /*127px  93px*/
+    width: calc(2.06vw + 87.4px);
+    /*127px  93px*/
     cursor: pointer;
 }
 
@@ -146,14 +157,17 @@ header .search-auth-container {
 }
 
 header .search-auth-container #searcher {
-    width: calc(1.68vw + 22.6px); /* 55px 28*/
+    width: calc(1.68vw + 22.6px);
+    /* 55px 28*/
     height: 52px;
     cursor: pointer;
 }
 
 header .search-auth-container #auth {
-    width: calc(5.4vw + 51.6px); /*138px 66px*/
-    height: calc(1.62vw + 21.8px); /*53px 27px*/
+    width: calc(5.4vw + 51.6px);
+    /*138px 66px*/
+    height: calc(1.62vw + 21.8px);
+    /*53px 27px*/
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -188,7 +202,8 @@ header .search-auth-container #auth:hover {
 
 /* hero start */
 .hero {
-    padding: calc(1.25vw + 6px); /*30px 10px*/
+    padding: calc(1.25vw + 6px);
+    /*30px 10px*/
     display: flex;
     flex-direction: column;
 }
@@ -203,7 +218,8 @@ header .search-auth-container #auth:hover {
 .hero-introduction-container h1 {
     font-family: 'Qanelas', sans-serif;
     font-weight: 900;
-    font-size: calc(2.06vw + 25.4px); /*65px 32px*/
+    font-size: calc(2.06vw + 25.4px);
+    /*65px 32px*/
     line-height: 100%;
     color: var(--white);
 }
@@ -266,8 +282,10 @@ header .search-auth-container #auth:hover {
     top: 12px;
     right: 10px;
     position: absolute;
-    width: calc(1.5vw + 33.2px); /*62px 38px*/
-    height: calc(0.75vw + 18.6px); /*33px 21px*/
+    width: calc(1.5vw + 33.2px);
+    /*62px 38px*/
+    height: calc(0.75vw + 18.6px);
+    /*33px 21px*/
     border-radius: 5px;
     background-color: var(--lightgreen);
     display: flex;
@@ -275,7 +293,8 @@ header .search-auth-container #auth:hover {
     align-items: center;
     font-family: 'Qanelas', sans-serif;
     font-weight: 700;
-    font-size: calc(0.375vw + 10.8px); /*18px 12px*/
+    font-size: calc(0.375vw + 10.8px);
+    /*18px 12px*/
     line-height: 100%;
     color: var(--white);
 
@@ -305,15 +324,18 @@ header .search-auth-container #auth:hover {
     display: block;
     margin: auto;
     margin-top: 51px;
-    width: calc(2.5vw + 152px); /*200px*/
-    height: calc(1.75vw + 37.4px); /*71px 43px*/
+    width: calc(2.5vw + 152px);
+    /*200px*/
+    height: calc(1.75vw + 37.4px);
+    /*71px 43px*/
     border: 2px solid var(--white);
     border-radius: 10px;
     background-color: transparent;
     cursor: pointer;
     font-family: 'Qanelas', sans-serif;
     font-weight: 700;
-    font-size: calc(0.25vw + 13.2px); /*18px 14px*/
+    font-size: calc(0.25vw + 13.2px);
+    /*18px 14px*/
     line-height: 167%;
     color: var(--white);
 }
@@ -322,8 +344,10 @@ header .search-auth-container #auth:hover {
 
 /* trailers start */
 .trailers-container {
-    margin-top: calc(2.25vw + 10.8px); /*54px 18px*/
-    padding: calc(1.25vw + 6px); /*30px 10px*/
+    margin-top: calc(2.25vw + 10.8px);
+    /*54px 18px*/
+    padding: calc(1.25vw + 6px);
+    /*30px 10px*/
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -340,7 +364,8 @@ header .search-auth-container #auth:hover {
 .trailers-container-introduction h3 {
     font-family: 'Qanelas', sans-serif;
     font-weight: 900;
-    font-size: calc(2.06vw + 25.4px); /*65px 32px*/
+    font-size: calc(2.06vw + 25.4px);
+    /*65px 32px*/
     line-height: 100%;
     color: var(--white);
 }
@@ -373,12 +398,14 @@ header .search-auth-container #auth:hover {
 
 #fullscreen {
     width: 100%;
-    height: 765px;
+    height: calc(34.06vw + 11px); /*765px 220px*/
 }
+
 iframe {
     width: 100%;
     /* width: calc(10.25vw + 145.2px ); 342px 178px */
-    height: calc(4.1vw + 164.6px); /*245px 178px*/
+    height: calc(4.1vw + 164.6px);
+    /*245px 178px*/
     border-radius: 10px;
 }
 
@@ -440,8 +467,10 @@ iframe {
     gap: 12px;
     overflow-x: auto;
     overflow-y: hidden;
-    width: 100%; /* или нужная ширина, но больше чем один iframe */
-    padding-bottom: 10px; /* чтобы скроллбар не прилипал */
+    width: 100%;
+    /* или нужная ширина, но больше чем один iframe */
+    padding-bottom: 10px;
+    /* чтобы скроллбар не прилипал */
     scrollbar-width: thin;
     scrollbar-color: #3657CB transparent;
 }
@@ -451,7 +480,8 @@ iframe {
     flex-direction: column;
     gap: 9px;
 }
-.overflow-trailers-container span{
+
+.overflow-trailers-container span {
     font-family: 'Qanelas', sans-serif;
     font-weight: 900;
     font-size: 20px;
@@ -474,20 +504,25 @@ iframe {
 }
 
 .overflow-trailers-block {
-    flex: 0 0 500px; /* фиксированная ширина блока с видео */
+    flex: 0 0 500px;
+    /* фиксированная ширина блока с видео */
 }
+
 /* trailers end */
 
 /* film-cards-wrapper start */
 .swiper {
-    margin-top: calc(2.5vw + 15px); /*63px 15px*/
+    margin-top: calc(2.5vw + 15px);
+    /*63px 15px*/
 }
+
 .swiper-slide {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
 }
+
 .film-cards-wrapper {
     margin-top: calc(2.25vw + 10.8px);
     padding: calc(1.25vw + 6px);
@@ -504,6 +539,7 @@ iframe {
     flex-direction: column;
     gap: 5px;
 }
+
 .popular-films .film-desc h3 {
     font-family: 'Qanelas', sans-serif;
     font-weight: 700;
@@ -517,6 +553,222 @@ iframe {
     font-weight: 400;
     font-size: 15px;
     line-height: 100%;
+    color: var(--lightyellow);
+}
+
+/* film-cards-wrapper end */
+
+
+/* popular-faces-wrapper start */
+.popular-faces-wrapper {
+    margin-top: calc(2.25vw + 10.8px); /*54px 18px*/
+    padding: calc(1.25vw + 6px); /*30px 10px*/
+    display: flex;
+    flex-direction: column;
+}
+
+.popular-faces-container {
+    margin-top: calc(2.56vw + 13.8px); /*63px 22px*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(0.75vw + 7.6px); /*22px 10px*/
+    flex-wrap: wrap;
+}
+
+.popular-faces-inner-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.popular-faces-inner-container span {
+    top: calc(0.43vw + 3.6px);/*12px 5px*/
+    left: calc(0.5vw + 6.4px); /*16px 8px*/
+    position: absolute;
+    z-index: 1;
+    font-family: 'Qanelas', sans-serif;
+    font-weight: 500;
+    font-size: calc(0.18vw + 11.4px);/*15px 12px*/
+    line-height: 20px;
+    color: var(--lightyellow);
+}
+
+.popular-faces-inner-container img {
+    /* width: 144px; */
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+}
+
+.people-info {
+    position: absolute;
+    bottom: calc(2.31vw - 7.4px);/*37px 0px*/
+    left: calc(1.81vw + 1.2px);
+    display: flex;
+    flex-direction: column;
+}
+
+.people-info h3 {
+    font-family: 'Qanelas', sans-serif;
+    font-weight: 700;
+    font-size: calc(0.875vw + 10.2px); /*27px 13px*/
+    line-height: 100%;
+    color: var(--white);
+}
+
+.people-info span {
+    position: unset;
+    font-family: 'Qanelas', sans-serif;
+    font-weight: 600;
+    font-size: calc(0.56vw + 9.2px); /*20px 11px*/
+    line-height: 100%;
+    color: var(--gray);
+}
+
+.people-info span {
+    font-family: 'Qanelas', sans-serif;
+    font-weight: 500;
+    font-size: calc(0.31vw + 9px); /*15px 10px*/
+    line-height: 20px;
+    color: var(--lightyellow);
+}
+
+.people-raitings {
+    width: 496px;
+    height: 444px;
+    background-color: var(--veryDarkBlue);
+    border-radius: 10px;
+}
+
+.people-raitings .raiting {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.people-raitings .raiting .raiting-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.people-raitings .raiting .raiting-left h3 {
+    font-family: 'Qanelas', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    color:var(--white);
+}
+.people-raitings .raiting .raiting-left h4 {
+    font-family: 'Qanelas', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    color:var(--lightbluemiddle);
+}
+
+.people-raitings .raiting .raiting-left span {
+    font-family: 'Qanelas', sans-serif;
+    font-size: 14px;
+    line-height: 100%;
+    color: var(--lightyellow);
+}
+.people-raitings .raiting .raiting-right span {
+    font-family: 'Qanelas', sans-serif;
+    font-size: 14px;
+    line-height: 100%;
     color:var(--lightyellow);
 }
-/* film-cards-wrapper end */
+/* popular-faces-wrapper end */
+
+/*news-wrapper start*/
+.news-wrapper {
+        padding: calc(1.25vw + 6px); /*30px 10px*/
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+    margin-top: 60px;
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
