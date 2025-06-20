@@ -873,7 +873,7 @@ iframe {
     }
 
     .subscription-notifications form label {
-        flex-wrap: wrap;
+        width: 100%;
     }
 
     .subscription-notifications form button {
