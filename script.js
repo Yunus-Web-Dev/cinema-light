@@ -2,7 +2,8 @@ import movies from "./public/data/movies.js";
 import trailers from "./public/data/trailers.js";
 import filmSlides from "./public/data/filmSlides.js";
 import filmSlides2 from "./public/data/filmSlides2.js";
-
+import filmSlides3 from "./public/data/filmSlides3.js";
+import data from "./public/data/raitings.js";
 //Loader start
 // const loader = document.getElementById('loader');
 // document.body.classList.add('loading');
@@ -153,6 +154,26 @@ function renderingOfSwiperElems2() {
 renderingOfSwiperElems2();
 
 
+function renderingOfSwiperElems3() {
+    const wrapper = document.querySelector('#swiper-wrapper3');
+    wrapper.innerHTML = filmSlides2.map(slide =>
+        `<div class="swiper-slide" id="swiper-slide3">
+            ${slide.map(film => `
+                <div class="popular-films">
+                    <img src="${film.img}" alt="${film.title}">
+                    <div class="film-desc">
+                        <h3>${film.title}</h3>
+                        <span>${film.genres}</span>
+                    </div>
+                </div>
+            `).join('')}
+        </div>`
+    ).join('');
+};
+
+renderingOfSwiperElems3();
+
+
 
 
 let slideIndex = 1;
@@ -195,3 +216,48 @@ window.showSlides = showSlides;
 document.addEventListener('DOMContentLoaded', () => {
     showSlides(slideIndex);
 });
+
+
+
+function renderPopularFaces(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const { topFaces, otherRatings } = data;
+
+    const renderTopFaces = () => {
+        return topFaces.map(person => `
+                      <div class="popular-faces-inner-container">
+            <span>${person.place}</span>
+            <img src="${person.img}" alt="${person.nameEn}">
+            <div class="people-info">
+              <h3>${person.nameRu}</h3>
+              <span>${person.nameEn}</span>
+              <span>${person.age}</span>
+            </div>
+          </div>
+            `).join('');
+    };
+
+    const renderOtheratings = () => {
+        return `
+                  <div class="people-raitings">
+            ${otherRatings.map(person => `
+              <div class="raiting">
+                <div class="raiting-left">
+                  <h3>${person.nameRu}</h3>
+                  <h4>${person.nameEn}</h4>
+                  <span>${person.age}</span>
+                </div>
+                <div class="raiting-right">
+                  <span>${person.place}</span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+    };
+
+    container.innerHTML = renderTopFaces() + renderOtheratings();
+}
+renderPopularFaces('popularFacesContainer');

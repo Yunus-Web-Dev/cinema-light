@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kinorarea</title>
     <link rel="stylesheet" href="./node_modules/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./public/favicon/film-reel.png" type="image/png">
 </head>
 <body>
     <!-- <div id="loader">
@@ -37,8 +38,8 @@
     <main role="main">
         <section class="hero">
             <div class="hero-introduction-container">
-                <h1>Сейчас в кино</h1>
-                <img src="./src/assets/images/burger.svg" alt="burgermenu">
+                <h2>Сейчас в кино</h2>
+                <img src="./src/assets/images/burger.svg" alt="burgermenu" id="burgermenu">
                 <hr class="line">
                 <ul class="selection-of-genre">
                     <li><a href="#">Все</a></li>
@@ -61,7 +62,7 @@
                 <img src="./src/assets/images/trailers.svg" alt="trailers" id="trailers-page">
             </div>
             <div class="trailers-container-content">
-                <iframe width="100%" height="765" src="https://www.youtube.com/embed/uyPLu4E45So"
+                <iframe width="100%" height="765px" src="https://www.youtube.com/embed/uyPLu4E45So"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen id="fullscreen">
@@ -89,8 +90,8 @@
         </section>
         <section class="film-cards-wrapper">
             <div class="hero-introduction-container">
-                <h1>Сейчас в кино</h1>
-                <img src="./src/assets/images/burger.svg" alt="burgermenu">
+                <h2>Популярные фильмы</h2>
+                <img src="./src/assets/images/burger.svg" alt="burgermenu" id="burgermenu">
                 <hr class="line">
                 <ul class="selection-of-genre">
                     <li><a href="#">Всё время</a></li>
@@ -102,11 +103,8 @@
                     <li><a href="#">2015</a></li>
                 </ul>
             </div>
-            <!-- Slider main container -->
             <div class="swiper">
-                <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
-                    <!-- Slides -->
                     <div class="swiper-slide">
 
                     </div>
@@ -116,91 +114,26 @@
                     <div class="swiper-slide">
                     </div>
                 </div>
-                <!-- If we need pagination -->
-                <!-- <div class="swiper-pagination"></div> -->
-                <!-- If we need navigation buttons -->
-                <!-- <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div> -->
-                <!-- If we need scrollbar -->
-                <!-- <div class="swiper-scrollbar"></div> -->
             </div>
         </section>
         <section class="popular-faces-wrapper">
             <div class="hero-introduction-container">
-                <h1>Популярные персоны</h1>
+                <h2>Популярные персоны</h2>
                 <hr class="line">
                 <ul class="selection-of-genre">
                     <li><a href="#">За год</a></li>
                     <li><a href="#"> За месяц</a></li>
                     <li><a href="#">За неделю</a></li>
                 </ul>
+                <img src="./src/assets/images/burger.svg" alt="burgermenu" id="burgermenu">
             </div>
-            <div class="popular-faces-container">
-                <div class="popular-faces-inner-container">
-                    <span>1-е место</span>
-                    <img src="./src/assets/images/people-face1.svg" alt="people-face1">
-                    <div class="people-info">
-                        <h3>Квентин Тарантино</h3>
-                        <span>Quentin Tarantino</span>
-                        <span>57 лет</span>
-                    </div>
-                </div>
-                <div class="popular-faces-inner-container">
-                    <span>1-е место</span>
-                    <img src="./src/assets/images/people-face2.svg" alt="people-face2">
-                    <div class="people-info">
-                        <h3>Квентин Тарантино</h3>
-                        <span>Quentin Tarantino</span>
-                        <span>57 лет</span>
-                    </div>
-                </div>
-                <div class="people-raitings">
-                    <div class="raiting">
-                        <div class="raiting-left">
-                            <h3>Тинто Брасс</h3>
-                            <h4>Tinto Brass</h4>
-                            <span>87 лет</span>
-                        </div>
-                        <div class="raiting-right">
-                            <span>3-е место</span>
-                        </div>
-                    </div>
-                    <div class="raiting">
-                        <div class="raiting-left">
-                            <h3>Джеки Чан</h3>
-                            <h4>Jackie Chan</h4>
-                            <span>66 лет</span>
-                        </div>
-                        <div class="raiting-right">
-                            <span>4-е место</span>
-                        </div>
-                    </div>
-                    <div class="raiting">
-                        <div class="raiting-left">
-                            <h3>Том Харди</h3>
-                            <h4>Tom Hardy</h4>
-                            <span>42 года</span>
-                        </div>
-                        <div class="raiting-right">
-                            <span>5-е место</span>
-                        </div>
-                    </div>
-                    <div class="raiting">
-                        <div class="raiting-left">
-                            <h3>Акшай Кумар</h3>
-                            <h4>Akshay Kumar</h4>
-                            <span>52 года</span>
-                        </div>
-                        <div class="raiting-right">
-                            <span>6-е место</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="popular-faces-container" id="popularFacesContainer">
+                <!-- карточки будут отрисовываться здесь с помощью JS -->
             </div>
         </section>
         <section class="news-wrapper">
             <div class="trailers-container-introduction">
-                <h3>Последние новости</h3>
+                <h2>Последние новости</h2>
                 <img src="./src/assets/images/news-arrow.svg" alt="trailers" id="trailers-page">
             </div>
             <!-- Container for the image gallery -->
@@ -289,10 +222,10 @@
         </section>
         <section class="film-cards-wrapper">
             <div class="hero-introduction-container">
-                <h1>Ожидаемые новинки</h1>
-                <img src="./src/assets/images/burger.svg" alt="burgermenu">
+                <h2>Ожидаемые новинки</h2>
+                <img src="./src/assets/images/burger.svg" alt="burgermenu" id="burgermenu">
             </div>
-                        <!-- Slider main container -->
+            <!-- Slider main container -->
             <div class="swiper">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper" id="swiper-wrapper2">
@@ -315,7 +248,69 @@
                 <!-- <div class="swiper-scrollbar"></div> -->
             </div>
         </section>
+        <section class="film-cards-wrapper">
+            <div class="hero-introduction-container">
+                <h2>Кассовые сборы</h2>
+                <img src="./src/assets/images/burger.svg" alt="burgermenu" id="burgermenu">
+                <ul class="selection-of-genre">
+                    <li><a href="#">Россия</a></li>
+                    <li><a href="#">Весь мир</a></li>
+                    <li><a href="#">США и Канада</a></li>
+                </ul>
+            </div>
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper" id="swiper-wrapper3">
+                    <!-- Slides -->
+                    <div class="swiper-slide" id="swiper-slide3">
+
+                    </div>
+                    <div class="swiper-slide" id="swiper-slide3">
+
+                    </div>
+                    <div class="swiper-slide" id="swiper-slide3">
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
+                <!-- If we need navigation buttons -->
+                <!-- <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div> -->
+                <!-- If we need scrollbar -->
+                <!-- <div class="swiper-scrollbar"></div> -->
+            </div>
+        </section>
+        <section class="subscription-notifications">
+            <img src="./src/assets/images/cleanlogo.svg" alt="logo">
+            <h2>Подпишитесь на E-mail рассылку</h2>
+            <p>Если хотиет быть в курсе последних новостей и новинок кино - заполните форму ниже и оформите бесплатную
+                E-mail рассылку! </p>
+            <form action="" method="post">
+                <label for="useremail">
+                    <input type="email" placeholder="Введите свой E-mail адрес" name="useremail">
+                </label>
+                <button type="submit">Подписаться</button>
+            </form>
+            <div class="checking-area">
+                <input type="checkbox" id="checkbox">
+                <span>Соглашаюсь на условия <a href="" id="privacy">политики конфиденциальности</a></span>
+            </div>
+        </section>
     </main>
+    <footer>
+        <img src="./src/assets/images/socialsfooter.svg" alt="socials-footer">
+        <ul>
+            <li><a href="">Афиша</a></li>
+            <li><a href="">Новости</a></li>
+            <li><a href="">Персоны</a></li>
+            <li><a href="">Рейтинги</a></li>
+            <li><a href="">Рецензии</a></li>
+            <li><a href="">Каталог фильмов</a></li>
+        </ul>
+        <span>2020 © Kinoarea. Все права защищены</span>
+        <a href="">Политика конфиденциальности</a>
+    </footer>
     <script defer src="./node_modules/swiper/swiper-bundle.min.js"></script>
     <script type="module" defer src="./script.js"></script>
 </body>

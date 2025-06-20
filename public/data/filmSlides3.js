@@ -1,8 +1,8 @@
 // swiper rendering 
-const filmSlides2 = [
+const filmSlides3 = [
     //Первый слайд
     [
-        { title: 'Под морем: История потомков', genres: 'Триллер, драма, криминал', img: './src/assets/images/slide2(4).svg' },
+        { title: '1. Бладшот', genres: '$15.1 млн за 4 недели', img: './src/assets/images/slide2(4).svg' },
         { title: 'Прощай', genres: '14 мая 2020 в России', img: './src/assets/images/slide2(3).svg' },
         { title: 'Дружить по-русски!', genres: '21 мая 2020 в России', img: './src/assets/images/slide2(2).svg' },
         { title: 'Приди ко мне', genres: '21 мая 2020 в России', img: './src/assets/images/slide2.svg' },
@@ -24,4 +24,4 @@ const filmSlides2 = [
 
 ];
 
-export default filmSlides2;
+export default filmSlides3;
